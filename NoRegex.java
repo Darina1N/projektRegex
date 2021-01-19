@@ -27,4 +27,25 @@ public class NoRegex {
 
         return true;
     }
+
+    public boolean isValidOP(String text){
+        if(text==null)
+            return false;
+
+        text = text.toUpperCase().trim();
+
+        if(text.length()!=8){
+            return false;
+        }
+        for(int i=0;i<=1;i++)//kontrola na prve 2 znaky ci su pismena bud takto alebo cez ascii co mam nizsie
+            if(!Character.isLetter(text.charAt(i)))
+                return false;
+
+        for(int i=2;i<=7;i++)//kontrola dalsích znakov ci to su cisla 
+            if(!Character.isDigit(text.charAt(i)))
+                return false;
+
+        return true;
+    }
+
 }
